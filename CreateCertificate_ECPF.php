@@ -21,41 +21,29 @@ $OrderType->payMethod = 'boleto';
 $OrderType->orderbase = '';
 $OrderType->renewal = '';
 
-$CNPJCertType = new CNPJCertType();
-$CNPJCertType->cnpj = '';
-$CNPJCertType->cpf = '';
-$CNPJCertType->data_nascimento = '';
-$CNPJCertType->nome_empresa = '';
-$CNPJCertType->name_cnpj = '';
-$CNPJCertType->documento_identificacao = '';
-$CNPJCertType->email = '';
-$CNPJCertType->estado = '';
-$CNPJCertType->municipio = '';
-$CNPJCertType->telefone_area_representante = '';
-$CNPJCertType->telefone_representante = '';
-$CNPJCertType->revogation_passphrase = '';
+$CPFCertType = new CPFCertType();
+$CPFCertType->cpf = '';
+$CPFCertType->data_nascimento = '';
+$CPFCertType->email = '';
+$CPFCertType->estado = '';
+$CPFCertType->municipio = '';
+$CPFCertType->telefone_area = '';
+$CPFCertType->telefone = '';
+$CPFCertType->revogation_passphrase = '';
+$CPFCertType->documento_identificacao = '';
 // opcionais
-$CNPJCertType->cei_pessoa_juridica = '';
-$CNPJCertType->nis = '';
-$CNPJCertType->num_eleitor = '';
-$CNPJCertType->zona_eleitoral = '';
-$CNPJCertType->secao_eleitoral = '';
-$CNPJCertType->municipio_eleitoral = '';
-$CNPJCertType->rg = '';
-$CNPJCertType->sigla_orgao_expedidor = '';
-$CNPJCertType->telefone_area_empresa = '';
-$CNPJCertType->telefone = '';
-$CNPJCertType->estado_representante = '';
-$CNPJCertType->municipio_representante = '';
+$CPFCertType->cei = '';
+$CPFCertType->nis = '';
+$CPFCertType->num_eleitor = '';
+$CPFCertType->zona_eleitoral = '';
+$CPFCertType->secao_eleitoral = '';
+$CPFCertType->municipio_eleitoral = '';
+$CPFCertType->rg = '';
+$CPFCertType->sigla_orgao_expedidor = '';
 
 try {
   $client = new DSBRAPISoapClient();
-
-  switch ($_GET['type']) {
-    case 'nfe': $result = $client->CreateCertificate_NFE($AuthType, $OrderType, $CNPJCertType); break;
-    case 'me': $result = $client->CreateCertificate_ME($AuthType, $OrderType, $CNPJCertType); break;
-    default: $result = $client->CreateCertificate_CNPJ($AuthType, $OrderType, $CNPJCertType); break;
-  }
+  $result = $client->CreateCertificate_ECPF($AuthType, $OrderType, $CPFCertType);
 } catch (Exception $e) {
   $result = $e->getMessage();
 }
@@ -74,7 +62,7 @@ try {
         <h1 class="title">DSBR API</h1>
         <h2 class="subtitle">WebServices - Criação de Encomendas no BlueX via DSBR API</h2>
         <nav class="panel">
-          <p class="panel-heading has-background-info has-text-white has-text-weight-semibold">e-CNPJ</p>
+          <p class="panel-heading has-background-info has-text-white has-text-weight-semibold">e-CPF</p>
           <pre><?php var_dump($result); ?></pre>
         </nav>
         <a class="button is-light" href="index.php">Voltar</a>
