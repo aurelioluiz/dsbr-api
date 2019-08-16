@@ -17,7 +17,7 @@
           <a class="panel-block" href="CreateCertificate_CNPJ.php?type=nfe&code=C01MPJA1SO12">CreateCertificate_NFE &nbsp;&nbsp; <span class="tag is-info">NF-e A1 12M</span></a>
           <a class="panel-block" href="CreateCertificate_ECPF.php?code=C01RPFA1SO12">CreateCertificate_ECPF &nbsp;&nbsp; <span class="tag is-success">e-CPF A1 12M</span></a>
           <a class="panel-block" href="SetPaymentOrder.php?code=C01RPJA3SE36">SetPaymentOrder &nbsp;&nbsp; <span class="tag is-primary">e-CNPJ A3 36M</span></a>
-          <a class="panel-block" href="StatusCertificado.php?code=C01RPFA3SE12">StatusCertificado &nbsp;&nbsp; <span class="tag is-warning">e-CPF A3 12M</span></a>
+          <a class="panel-block" href="StatusCertificado.php">StatusCertificado</a>
         </nav>
       </div>
     </section>

@@ -54,3 +54,7 @@ $_Data['expire_month'] = '12';
 $_Data['expire_year'] = '2019';
 $_Data['card_name'] = 'JOSE DA SILVA';
 $_Data['card_cvv'] = '132';
+
+
+// StatusCertificado
+$_Data['reqid_orderid'] = '';
