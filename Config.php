@@ -1,4 +1,4 @@
-<?php
+<?php require 'Data.php';
 
 $config['client_name'] = '';
 $config['auth_token'] = '';
