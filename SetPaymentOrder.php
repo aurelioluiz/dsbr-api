@@ -52,11 +52,12 @@ try {
   $client = new DSBRAPISoapClient();
 
   switch ($_GET['type']) {
-    case 'nfe': $result = $client->CreateCertificate_NFE($AuthType, $OrderType, $CNPJCertType); break;
-    case 'me': $result = $client->CreateCertificate_ME($AuthType, $OrderType, $CNPJCertType); break;
-    default: $result = $client->CreateCertificate_CNPJ($AuthType, $OrderType, $CNPJCertType); break;
+    case 'nfe': $xml = $client->CreateCertificate_NFE($AuthType, $OrderType, $CNPJCertType); break;
+    case 'me': $xml = $client->CreateCertificate_ME($AuthType, $OrderType, $CNPJCertType); break;
+    default: $xml = $client->CreateCertificate_CNPJ($AuthType, $OrderType, $CNPJCertType); break;
   }
 
+  $certificate = new SimpleXMLElement($xml);
   $PaymentCard = new PaymentCard();
   $PaymentCard->payMethod = $OrderType->payMethod;
 	$PaymentCard->card_number = $_Data['card_number'];
@@ -65,12 +66,14 @@ try {
 	$PaymentCard->card_name = $_Data['card_name'];
 	$PaymentCard->card_cvv = $_Data['card_cvv'];
 	$PaymentCard->parcela_valor = '00';
-	$PaymentCard->orderid_pay = $result->orderid;
+	$PaymentCard->orderid_pay = $certificate->orderid;
 	$PaymentCard->url_retorno = '?';
 
-  $result = $client->SetPaymentOrder($AuthType, $PaymentCard);
+  $xml = $client->SetPaymentOrder($AuthType, $PaymentCard);
+  $payment = new SimpleXMLElement($xml);
 } catch (Exception $e) {
-  $result = $e->getMessage();
+  $certificate = $e->getMessage();
+  $payment = [];
 }
 
 ?>
@@ -88,7 +91,8 @@ try {
         <h2 class="subtitle">WebServices - Criação de Encomendas no BlueX via DSBR API</h2>
         <nav class="panel">
           <p class="panel-heading has-background-info has-text-white has-text-weight-semibold">e-CNPJ SetPaymentOrder</p>
-          <pre><?php var_dump($result); ?></pre>
+          <pre><?php var_dump($certificate); ?></pre>
+          <pre><?php var_dump($payment); ?></pre>
         </nav>
         <a class="button is-light" href="index.php">Voltar</a>
       </div>

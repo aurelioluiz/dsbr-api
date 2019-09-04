@@ -314,7 +314,7 @@ class consultaRFBResponseType{
 
 /**
  * O object com os dados necessarios para a emissao de um certificado do tipo: e-CPF
- * 
+ *
  * Campos com 'minoccurs=0' sao opcionais.
  *
  * @pw_element string $cpf A string with a value. Max size: 11
@@ -634,7 +634,7 @@ class OrderType{
 
 /**
  * O object com os dados necessarios para a emissao de um certificado do tipo: e-CNPJ
- * 
+ *
  * Campos com 'minoccurs=0' sao opcionais.
  *
  * @pw_element string $cnpj A string with a value. Max size:14
@@ -834,7 +834,7 @@ class CertData{
 
 /**
  * O object devolve a trilha de um certificado
- * 
+ *
  * Campos com 'minoccurs=0' sao opcionais.
  *
  * @pw_element string $reqid Id do certificado a consultar.
@@ -1014,7 +1014,7 @@ class CreateResponseStatus{
 
 /**
  * O object com os dados necessarios para realizar um pedido de consulta de Certificados num intervalo de Data / Projecto.
- * 
+ *
  * Campos com 'minoccurs=0' sao opcionais.
  *
  * @pw_element string $date_first Data inicial, para aceder ao webservice.
@@ -1245,7 +1245,7 @@ class SendEmailResponse{
 
 /**
  * O object com os dados necessarios para realizar um pagamento por Cartao Credito ou Debito.
- * 
+ *
  * Campos com 'minoccurs=0' sao opcionais.
  *
  * @pw_element string $payMethod Define o metodo de pagamento de acordo com o que foi definido para cada parceiro (credito ou cardebit), por defeito e Credido.

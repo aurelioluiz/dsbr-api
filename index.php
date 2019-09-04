@@ -16,7 +16,7 @@
           <a class="panel-block" href="CreateCertificate_CNPJ.php?type=me&code=C91RPJA3TO18">CreateCertificate_ME &nbsp;&nbsp; <span class="tag is-info">e-CNPJ ME, EPP e MEI Token 18M</span></a>
           <a class="panel-block" href="CreateCertificate_CNPJ.php?type=nfe&code=C01MPJA1SO12">CreateCertificate_NFE &nbsp;&nbsp; <span class="tag is-info">NF-e A1 12M</span></a>
           <a class="panel-block" href="CreateCertificate_ECPF.php?code=C01RPFA1SO12">CreateCertificate_ECPF &nbsp;&nbsp; <span class="tag is-success">e-CPF A1 12M</span></a>
-          <a class="panel-block" href="SetPaymentOrder.php?code=C01RPJA3SE36">SetPaymentOrder &nbsp;&nbsp; <span class="tag is-primary">e-CNPJ A3 36M</span></a>
+          <a class="panel-block" href="SetPaymentOrder.php?code=C01RPJA3SE36&type=">SetPaymentOrder &nbsp;&nbsp; <span class="tag is-primary">e-CNPJ A3 36M</span></a>
           <a class="panel-block" href="StatusCertificado.php">StatusCertificado</a>
         </nav>
       </div>

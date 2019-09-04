@@ -6,9 +6,10 @@ try {
   $CertData->reqid_orderid = $_Data['reqid_orderid'];
 
   $client = new DSBRAPISoapClient();
-  $result = $client->StatusCertificado($AuthType, $CertData);
+  $xml = $client->StatusCertificado($AuthType, $CertData);
+  $status = new SimpleXMLElement($xml);
 } catch (Exception $e) {
-  $result = $e->getMessage();
+  $status = $e->getMessage();
 }
 
 ?>
@@ -26,7 +27,7 @@ try {
         <h2 class="subtitle">WebServices - Criação de Encomendas no BlueX via DSBR API</h2>
         <nav class="panel">
           <p class="panel-heading has-background-info has-text-white has-text-weight-semibold">e-CPF StatusCertificado</p>
-          <pre><?php var_dump($result); ?></pre>
+          <pre><?php var_dump($status); ?></pre>
         </nav>
         <a class="button is-light" href="index.php">Voltar</a>
       </div>

@@ -52,12 +52,13 @@ try {
   $client = new DSBRAPISoapClient();
 
   switch ($_GET['type']) {
-    case 'nfe': $result = $client->CreateCertificate_NFE($AuthType, $OrderType, $CNPJCertType); break;
-    case 'me': $result = $client->CreateCertificate_ME($AuthType, $OrderType, $CNPJCertType); break;
-    default: $result = $client->CreateCertificate_CNPJ($AuthType, $OrderType, $CNPJCertType); break;
+    case 'nfe': $xml = $client->CreateCertificate_NFE($AuthType, $OrderType, $CNPJCertType); break;
+    case 'me': $xml = $client->CreateCertificate_ME($AuthType, $OrderType, $CNPJCertType); break;
+    default: $xml = $client->CreateCertificate_CNPJ($AuthType, $OrderType, $CNPJCertType); break;
   }
+  $certificate = new SimpleXMLElement($xml);
 } catch (Exception $e) {
-  $result = $e->getMessage();
+  $certificate = $e->getMessage();
 }
 
 ?>
@@ -75,7 +76,7 @@ try {
         <h2 class="subtitle">WebServices - Criação de Encomendas no BlueX via DSBR API</h2>
         <nav class="panel">
           <p class="panel-heading has-background-info has-text-white has-text-weight-semibold">e-CNPJ</p>
-          <pre><?php var_dump($result); ?></pre>
+          <pre><?php var_dump($certificate); ?></pre>
         </nav>
         <a class="button is-light" href="index.php">Voltar</a>
       </div>
